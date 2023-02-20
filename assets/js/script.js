@@ -5,14 +5,34 @@ var questionNo = 0;
 
 var questions = [
   {
-Question: "what is 4+2?",
-Answer: "6",
-choices: ["1", "12", "20", "6"]
+Question: "What is the capital city of Canada?",
+Answer: "Ottawa",
+choices: ["Toronto", "Vancouver", "Ottawa", "Montreal"]
   },
   {
-    Question: "what is 6+2?",
-    Answer: "8",
-    choices: ["8", "12", "10", "4"]
+    Question: "What's 9+10?",
+    Answer: "19",
+    choices: ["21", "90", "19", "-1"]
+  },
+  {
+    Question: "Which country is known as the Land of the Rising Sun?",
+    Answer: "Japan",
+    choices: ["China", "Japan", "United States", "India"]
+  },
+  {
+    Question: "Who is the author of the Harry Potter book series?",
+    Answer: "J.K. Rowling",
+    choices: ["Stephen King", "J.K. Rowling", "Dan Brown", "George R.R. Martin"]
+  },
+  {
+    Question: "What is the largest planet in our solar system?",
+    Answer: "Jupiter",
+    choices: ["Jupiter", "Saturn", "Mars", "Venus"]
+  },
+  {
+    Question: "Who was the first Black president of the United States?",
+    Answer: "19",
+    choices: ["Donald Trump", "Kamala Harris", "Franklin D. Roosevelt", "Barack Obama"]
   },
 ]
 
