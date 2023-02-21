@@ -2,6 +2,8 @@ var startBtn = document.querySelector("#start");
 var startScreen = document.querySelector("#start-screen");
 var questionsScreen = document.querySelector("#questions");
 var questionNo = 0;
+var questionChoices = document.querySelector("#choices");
+var correctAns = document.querySelector("#feedback");
 
 var questions = [
   {
@@ -58,4 +60,4 @@ function nextQuestion() {
 }
 
 // What I need to do now is extract the options from the question variable and put it into buttons.
-// I should get the button from the html using querySelector and modify it from there
+// I should make a button modify it from there so it shows the options
