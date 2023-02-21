@@ -5,35 +5,30 @@ var questionNo = 0;
 
 var questions = [
   {
-Question: "What is the capital city of Canada?",
-Answer: "Ottawa",
-choices: ["Toronto", "Vancouver", "Ottawa", "Montreal"]
+    Question: "What is the keyword used to define a JavaScript function?",
+    Answer: "function",
+    choices: ["func", "function", "def", "void"]
   },
   {
-    Question: "What's 9+10?",
-    Answer: "19",
-    choices: ["21", "90", "19", "-1"]
+    Question: "Which of the following is not a valid HTML tag?",
+    Answer: "None of the above",
+    choices: ["None of the above", "<h1>", "<span>", "<p>"]
   },
   {
-    Question: "Which country is known as the Land of the Rising Sun?",
-    Answer: "Japan",
-    choices: ["China", "Japan", "United States", "India"]
+    Question: "What is the correct syntax to add a comment in JavaScript?",
+    Answer: " // This is a comment",
+    choices: [" // This is a comment", "<!-- This is a comment -->", "* This is a comment *", "# This is a comment"]
   },
   {
-    Question: "Who is the author of the Harry Potter book series?",
-    Answer: "J.K. Rowling",
-    choices: ["Stephen King", "J.K. Rowling", "Dan Brown", "George R.R. Martin"]
+    Question: "Which of the following is not a CSS property?",
+    Answer: "loop",
+    choices: ["color", "background-image", "loop", "font-size"]
   },
   {
-    Question: "What is the largest planet in our solar system?",
-    Answer: "Jupiter",
-    choices: ["Jupiter", "Saturn", "Mars", "Venus"]
-  },
-  {
-    Question: "Who was the first Black president of the United States?",
-    Answer: "19",
-    choices: ["Donald Trump", "Kamala Harris", "Franklin D. Roosevelt", "Barack Obama"]
-  },
+    Question: "Which of the following is not a valid JavaScript data type?",
+    Answer: "character",
+    choices: ["number", "string", "character", "object"]
+  }
 ]
 
 startBtn.addEventListener('click', function () {
@@ -47,7 +42,7 @@ var choicesEl = document.querySelector("#choices");
 var qstnEl = document.querySelector("#question-title");
 qstnEl.textContent = questions [questionNo].Question
 
-// add this event listenr to choices instead of question later
+// add this event listener to choices instead of question later
 qstnEl.addEventListener("click", nextQuestion)
 }
 
@@ -58,6 +53,9 @@ function nextQuestion() {
   displayQuestion ()
   }
   else {
-    alert ("game over")
+    alert ("Game is now over!")
   }
 }
+
+// What I need to do now is extract the options from the question variable and put it into buttons.
+// I should get the button from the html using querySelector and modify it from there
