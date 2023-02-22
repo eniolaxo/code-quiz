@@ -4,6 +4,8 @@ var questionsScreen = document.querySelector("#questions");
 var questionNo = 0;
 var questionChoices = document.querySelector("#choices");
 var correctAns = document.querySelector("#feedback");
+var currentQIndex;
+
 
 var questions = [
   {
@@ -40,9 +42,10 @@ startBtn.addEventListener('click', function () {
   displayQuestion ()
 })
 function displayQuestion(){
-var choicesEl = document.querySelector("#choices");
+var choicesEl = questionChoices//do smth here;
 var qstnEl = document.querySelector("#question-title");
 qstnEl.textContent = questions [questionNo].Question
+// choicesEl.textContent = questions.[questionNo].choices
 
 // add this event listener to choices instead of question later
 qstnEl.addEventListener("click", nextQuestion)
@@ -59,5 +62,19 @@ function nextQuestion() {
   }
 }
 
+
+//function for showing 'wrong' or 'correct' feedback
+
+
 // What I need to do now is extract the options from the question variable and put it into buttons.
 // I should make a button modify it from there so it shows the options
+//going to create buttons for the choices id div
+
+// var listOfChoices = [];
+// for (var i = 0; i<4; i++) {
+//     var choiceBtn = document.createElement("button");
+//     choiceList.push(choiceBtn);
+//     questionChoices.appendChild(listOfChoices[i]);
+// }
+
+//Event listener for clicking on question choices, compares selected answer to correct answer
