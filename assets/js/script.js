@@ -71,42 +71,26 @@ function checkAnswer(event) {
   if (selectedAnswer === questions[questionNo].Answer) {
     feedbackEl.textContent = "Correct!";
   } else {
-    feedbackEl.textContent = "Wrong!"; }
+    feedbackEl.textContent = "Wrong!"; 
 
-
-// //a for loop is for(var i = 0; i < question.length; i ++)
-// function nextQuestion() {
-//   questionNo ++
-//   if (questionNo < questions.length) {
-//   displayQuestion ()
-//   }
-//   else {
-//     alert ("Game is now over!")
-//   }
+// Ineed to implement a timer for the quiz
+    // Subtract time from the clock
+    secondsLeft -= 10;
+    if (secondsLeft < 0) {
+      secondsLeft = 0;
+    }
 }
+}
+
 
 // to move on to the next question:
 // questionNo++;
 // if (questionNo < questions.length) {
 //   displayQuestion();
 // } else {
-//   // End the game if there are no more questions
+// End the game if there are no more questions
 //   clearInterval(timerInterval);
 //   endGame();
 // }
-
-//function for showing 'wrong' or 'correct' feedback
-
-
-// What I need to do now is extract the options from the question variable and put it into buttons.
-// I should make a button modify it from there so it shows the options
-//going to create buttons for the choices id div
-
-// var listOfChoices = [];
-// for (var i = 0; i<4; i++) {
-//     var choiceBtn = document.createElement("button");
-//     choiceList.push(choiceBtn);
-//     questionChoices.appendChild(listOfChoices[i]);
 // }
-
 
