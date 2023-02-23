@@ -50,7 +50,8 @@ function countdownTimer (){
     timerEl.textContent = "Time left: " + timeLeft;
     timeLeft--;
   } else {
-    clearInterval
+    clearInterval(timerInterval);
+    endGame();
   }
 }
 
@@ -86,8 +87,6 @@ function checkAnswer(event) {
   } else {
     feedbackEl.textContent = "Wrong!"; 
 
-    //insert clock timer countdown
-
     // to move on to the next question:
 questionNo++;
 if (questionNo < questions.length) {
@@ -98,6 +97,11 @@ if (questionNo < questions.length) {
   endGame();
 }
 }
-  }
+}
+
+// now I will define the endGame function so that it can actually work when called to end the game
+function endGame () {
+  
+}
 
 
