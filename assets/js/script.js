@@ -101,7 +101,9 @@ if (questionNo < questions.length) {
 
 // now I will define the endGame function so that it can actually work when called to end the game
 function endGame () {
-  
+  var finalScore = document.querySelector("#final-score");
+  var questionsEl = document.querySelector("#questions");
+  var endScreenEl = document.querySelector ("#end-screen");
 }
 
 
