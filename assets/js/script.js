@@ -42,26 +42,58 @@ startBtn.addEventListener('click', function () {
   displayQuestion ()
 })
 function displayQuestion(){
-var choicesEl = questionChoices//do smth here;
+var choicesEl = questionChoices;
 var qstnEl = document.querySelector("#question-title");
-qstnEl.textContent = questions [questionNo].Question
-// choicesEl.textContent = questions.[questionNo].choices
+qstnEl.textContent = questions [questionNo].Question;
 
-// add this event listener to choices instead of question later
-qstnEl.addEventListener("click", nextQuestion)
+// Clear any existing choices
+choicesEl.innerHTML = "";
+
+ // Loopin through the choices for the current question and creating a button for each one
+for (var i = 0; i < questions[questionNo].choices.length; i++) {
+  var choice = questions[questionNo].choices[i];
+  var choiceBtn = document.createElement("button");
+  choiceBtn.textContent = choice;
+  choiceBtn.setAttribute("data-answer", choice);
+
+// Attach an event listener to the button to check the answer
+choiceBtn.addEventListener("click", checkAnswer);
+choicesEl.appendChild(choiceBtn);
+}
+} 
+
+// Creating a function so that if a user clicks the right/wrong answer, it will tell them.
+function checkAnswer(event) {
+  var selectedAnswer = event.target.getAttribute("data-answer");
+  var feedbackEl = document.querySelector("#feedback");
+
+  // Check if the selected answer is correct
+  if (selectedAnswer === questions[questionNo].Answer) {
+    feedbackEl.textContent = "Correct!";
+  } else {
+    feedbackEl.textContent = "Wrong!"; }
+
+
+// //a for loop is for(var i = 0; i < question.length; i ++)
+// function nextQuestion() {
+//   questionNo ++
+//   if (questionNo < questions.length) {
+//   displayQuestion ()
+//   }
+//   else {
+//     alert ("Game is now over!")
+//   }
 }
 
-//a for loop is for(var i = 0; i < question.length; i ++)
-function nextQuestion() {
-  questionNo ++
-  if (questionNo < questions.length) {
-  displayQuestion ()
-  }
-  else {
-    alert ("Game is now over!")
-  }
-}
-
+// to move on to the next question:
+// questionNo++;
+// if (questionNo < questions.length) {
+//   displayQuestion();
+// } else {
+//   // End the game if there are no more questions
+//   clearInterval(timerInterval);
+//   endGame();
+// }
 
 //function for showing 'wrong' or 'correct' feedback
 
@@ -77,4 +109,4 @@ function nextQuestion() {
 //     questionChoices.appendChild(listOfChoices[i]);
 // }
 
-//Event listener for clicking on question choices, compares selected answer to correct answer
+
