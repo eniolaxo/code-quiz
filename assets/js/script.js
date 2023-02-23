@@ -4,7 +4,9 @@ var questionsScreen = document.querySelector("#questions");
 var questionNo = 0;
 var questionChoices = document.querySelector("#choices");
 var correctAns = document.querySelector("#feedback");
-var currentQIndex;
+var timeLeft = 30; // this will be 30 seconds per question
+var timerEl = document.querySelector("#timer");
+var timerInterval;
 
 
 var questions = [
@@ -39,6 +41,8 @@ startBtn.addEventListener('click', function () {
   console.log("Hello");
   startScreen.classList.add("hide");
   questionsScreen.classList.remove("hide");
+  timerInterval = 
+  
   displayQuestion ()
 })
 function displayQuestion(){
@@ -73,24 +77,18 @@ function checkAnswer(event) {
   } else {
     feedbackEl.textContent = "Wrong!"; 
 
-// Ineed to implement a timer for the quiz
-    // Subtract time from the clock
-    secondsLeft -= 10;
-    if (secondsLeft < 0) {
-      secondsLeft = 0;
-    }
-}
-}
+    //insert clock timer countdown
 
-
-// to move on to the next question:
-// questionNo++;
-// if (questionNo < questions.length) {
-//   displayQuestion();
-// } else {
+    // to move on to the next question:
+questionNo++;
+if (questionNo < questions.length) {
+  displayQuestion();
+} else {
 // End the game if there are no more questions
-//   clearInterval(timerInterval);
-//   endGame();
-// }
-// }
+  clearInterval(timerInterval);
+  endGame();
+}
+}
+  }
+
 
