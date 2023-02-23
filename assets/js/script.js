@@ -104,6 +104,11 @@ function endGame () {
   var finalScore = document.querySelector("#final-score");
   var questionsEl = document.querySelector("#questions");
   var endScreenEl = document.querySelector ("#end-screen");
+
+  finalScoreEl.textContent = timeLeft;
+  questionsEl.classList.add("hide");
+  endScreenEl.classList.remove("hide");
 }
 
+// now I need to add an event listener to start the timer 
 
