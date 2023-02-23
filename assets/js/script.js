@@ -4,9 +4,7 @@ var questionsScreen = document.querySelector("#questions");
 var questionNo = 0;
 var questionChoices = document.querySelector("#choices");
 var correctAns = document.querySelector("#feedback");
-var timeLeft = 60; // this will be 60 seconds per question
-var timerEl = document.querySelector("#timer");
-var timerInterval;
+
 
 
 var questions = [
@@ -41,18 +39,21 @@ startBtn.addEventListener('click', function () {
   console.log("Hello");
   startScreen.classList.add("hide");
   questionsScreen.classList.remove("hide");
-  timerInterval = setInterval(countdownTimer, 1000); // 1000 = 1 second
   displayQuestion ();
 })
 
 function countdownTimer (){
+  var timeLeft = 60; // this will be 60 seconds per question
+  var timerEl = document.querySelector("#timer");
+var timerId = setInterval(function() {
   if (timeLeft > 0) {
     timerEl.textContent = "Time left: " + timeLeft;
     timeLeft--;
   } else {
-    clearInterval(timerInterval);
+    clearInterval(timerId);
     endGame();
   }
+}, 1000);
 }
 
 function displayQuestion(){
@@ -93,7 +94,7 @@ if (questionNo < questions.length) {
   displayQuestion();
 } else {
 // End the game if there are no more questions
-  clearInterval(timerInterval);
+  clearInterval(timerId);
   endGame();
 }
 }
@@ -111,4 +112,3 @@ function endGame () {
 }
 
 // now I need to add an event listener to start the timer 
-
