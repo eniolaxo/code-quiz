@@ -4,48 +4,51 @@ var questionsScreen = document.querySelector("#questions");
 var questionNo = 0;
 var questionChoices = document.querySelector("#choices");
 var correctAns = document.querySelector("#feedback");
+var timeLeft = 60; // this will be 60 seconds per question
 
 
 
 var questions = [
   {
     Question: "What is the keyword used to define a JavaScript function?",
-    Answer: "function",
+    answer: "function",
     choices: ["func", "function", "def", "void"]
   },
   {
     Question: "Which of the following is not a valid HTML tag?",
-    Answer: "None of the above",
+    answer: "None of the above",
     choices: ["None of the above", "<h1>", "<span>", "<p>"]
   },
   {
     Question: "What is the correct syntax to add a comment in JavaScript?",
-    Answer: " // This is a comment",
+    answer: " // This is a comment",
     choices: [" // This is a comment", "<!-- This is a comment -->", "* This is a comment *", "# This is a comment"]
   },
   {
     Question: "Which of the following is not a CSS property?",
-    Answer: "loop",
+    answer: "loop",
     choices: ["color", "background-image", "loop", "font-size"]
   },
   {
     Question: "Which of the following is not a valid JavaScript data type?",
-    Answer: "character",
+    answer: "character",
     choices: ["number", "string", "character", "object"]
   }
-]
+];
+
+var timerId;
 
 startBtn.addEventListener('click', function () {
   console.log("Hello");
   startScreen.classList.add("hide");
   questionsScreen.classList.remove("hide");
-  displayQuestion ();
-})
+  countdownTimer();
+  displayQuestion();
+});
 
 function countdownTimer (){
-  var timeLeft = 60; // this will be 60 seconds per question
   var timerEl = document.querySelector("#timer");
-var timerId = setInterval(function() {
+timerId = setInterval(function() {
   if (timeLeft > 0) {
     timerEl.textContent = "Time left: " + timeLeft;
     timeLeft--;
@@ -81,22 +84,25 @@ choicesEl.appendChild(choiceBtn);
 function checkAnswer(event) {
   var selectedAnswer = event.target.getAttribute("data-answer");
   var feedbackEl = document.querySelector("#feedback");
+  feedbackEl.classList.remove("hide"); 
 
   // Check if the selected answer is correct
-  if (selectedAnswer === questions[questionNo].Answer) {
+  if (selectedAnswer === questions[questionNo].answer) {
     feedbackEl.textContent = "Correct!";
   } else {
     feedbackEl.textContent = "Wrong!"; 
+    timeLeft -= 10;
+  }
 
     // to move on to the next question:
 questionNo++;
-if (questionNo < questions.length) {
+
+if (questionNo < questions.length && timeLeft > 0) {
   displayQuestion();
 } else {
 // End the game if there are no more questions
   clearInterval(timerId);
   endGame();
-}
 }
 }
 
