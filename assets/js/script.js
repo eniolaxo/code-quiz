@@ -41,10 +41,19 @@ startBtn.addEventListener('click', function () {
   console.log("Hello");
   startScreen.classList.add("hide");
   questionsScreen.classList.remove("hide");
-  timerInterval = 
-  
-  displayQuestion ()
+  timerInterval = setInterval(countdownTimer, 1000); // 1000 = 1 second
+  displayQuestion ();
 })
+
+function countdownTimer (){
+  if (timeLeft > 0) {
+    timerEl.textContent = "Time left: " + timeLeft;
+    timeLeft--;
+  } else {
+    clearInterval
+  }
+}
+
 function displayQuestion(){
 var choicesEl = questionChoices;
 var qstnEl = document.querySelector("#question-title");
