@@ -4,7 +4,7 @@ var questionsScreen = document.querySelector("#questions");
 var questionNo = 0;
 var questionChoices = document.querySelector("#choices");
 var correctAns = document.querySelector("#feedback");
-var timeLeft = 30; // this will be 30 seconds per question
+var timeLeft = 60; // this will be 60 seconds per question
 var timerEl = document.querySelector("#timer");
 var timerInterval;
 
