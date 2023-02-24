@@ -126,5 +126,27 @@ function endGame () {
 
 // time to work with storing and saving high-scores and the player's initials
 // going to add a localStorage property so that it can save the key-value pairs I need
-submission.addEventListener("click", function() {
-  location.href="highscores.html";})
+
+// submission.addEventListener("click", function() {
+//   location.href="highscores.html";})
+
+  submission.addEventListener("click", function () {
+    var finalScoreEl = document.querySelector("#final-score");
+    var initials = initialsForm.value.trim(); // get the user's initials
+    var score = timeLeft; // save the time left as the score
+    var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  
+    // add the new score to the high scores array
+    highScores.push({ initials: initials, score: score });
+  
+    // sort the high scores array in descending order by score
+    highScores.sort(function(a, b) {
+      return b.score - a.score;
+    });
+  
+    // save the high scores array to local storage
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+  
+    // redirect to the high scores page
+    location.href = "highscores.html";
+  })
