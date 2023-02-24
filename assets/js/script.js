@@ -49,7 +49,7 @@ startBtn.addEventListener('click', function () {
 });
 
 function countdownTimer (){
-  var timerEl = document.querySelector("#timer");
+  var timerEl = document.querySelector(".timer");
 timerId = setInterval(function() {
   if (timeLeft > 0) {
     timerEl.textContent = "Time left: " + timeLeft;
