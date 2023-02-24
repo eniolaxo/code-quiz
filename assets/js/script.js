@@ -46,7 +46,7 @@ startBtn.addEventListener('click', function () {
   displayQuestion();
 });
 
-function countdownTimer (){
+function countdownTimer (timeLeft){
   var timerEl = document.querySelector("#timer");
 timerId = setInterval(function() {
   if (timeLeft > 0) {
@@ -108,7 +108,7 @@ if (questionNo < questions.length && timeLeft > 0) {
 
 // now I will define the endGame function so that it can actually work when called to end the game
 function endGame () {
-  var finalScore = document.querySelector("#final-score");
+  var finalScoreEl = document.querySelector("#final-score");
   var questionsEl = document.querySelector("#questions");
   var endScreenEl = document.querySelector ("#end-screen");
 
@@ -118,3 +118,4 @@ function endGame () {
 }
 
 // now I need to add an event listener to start the timer 
+
