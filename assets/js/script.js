@@ -66,6 +66,7 @@ var choicesEl = questionChoices;
 var qstnEl = document.querySelector("#question-title");
 qstnEl.textContent = questions[questionNo].Question;
 
+
 // Clear any existing choices
 choicesEl.innerHTML = "";
 
