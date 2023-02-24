@@ -150,3 +150,5 @@ function endGame () {
     // redirect to the high scores page
     location.href = "highscores.html";
   })
+
+  
