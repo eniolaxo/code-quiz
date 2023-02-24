@@ -5,7 +5,7 @@ var questionNo = 0;
 var questionChoices = document.querySelector("#choices");
 var correctAns = document.querySelector("#feedback");
 var timeLeft = 60; // this will be 60 seconds per question
-var highScores = [];
+var highScores;
 var submission = document.querySelector("#submit");
 var initialsForm = document.querySelector("#initials");
 
@@ -127,7 +127,4 @@ function endGame () {
 // time to work with storing and saving high-scores and the player's initials
 // going to add a localStorage property so that it can save the key-value pairs I need
 submission.addEventListener("click", function() {
-  location.href="highscores.html"; })
-
-
-  
+  location.href="highscores.html";})
