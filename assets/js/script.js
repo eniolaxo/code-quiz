@@ -5,7 +5,9 @@ var questionNo = 0;
 var questionChoices = document.querySelector("#choices");
 var correctAns = document.querySelector("#feedback");
 var timeLeft = 60; // this will be 60 seconds per question
-
+var highScores = [];
+var submission = document.querySelector("#submit");
+var initialsForm = document.querySelector("#initials");
 
 
 var questions = [
@@ -46,7 +48,7 @@ startBtn.addEventListener('click', function () {
   displayQuestion();
 });
 
-function countdownTimer (timeLeft){
+function countdownTimer (){
   var timerEl = document.querySelector("#timer");
 timerId = setInterval(function() {
   if (timeLeft > 0) {
@@ -59,10 +61,10 @@ timerId = setInterval(function() {
 }, 1000);
 }
 
-function displayQuestion(){
+function displayQuestion() {
 var choicesEl = questionChoices;
 var qstnEl = document.querySelector("#question-title");
-qstnEl.textContent = questions [questionNo].Question;
+qstnEl.textContent = questions[questionNo].Question;
 
 // Clear any existing choices
 choicesEl.innerHTML = "";
@@ -92,6 +94,9 @@ function checkAnswer(event) {
   } else {
     feedbackEl.textContent = "Wrong!"; 
     timeLeft -= 10;
+    if (timeLeft < 0){
+      timeLeft = 0;
+    }
   }
 
     // to move on to the next question:
@@ -109,6 +114,7 @@ if (questionNo < questions.length && timeLeft > 0) {
 // now I will define the endGame function so that it can actually work when called to end the game
 function endGame () {
   var finalScoreEl = document.querySelector("#final-score");
+  // made the initial id variable global instead of local
   var questionsEl = document.querySelector("#questions");
   var endScreenEl = document.querySelector ("#end-screen");
 
@@ -117,5 +123,10 @@ function endGame () {
   endScreenEl.classList.remove("hide");
 }
 
-// now I need to add an event listener to start the timer 
+// time to work with storing and saving high-scores and the player's initials
+// going to add a localStorage property so that it can save the key-value pairs I need
+submission.addEventListener("click", function() {
+  location.href="highscores.html"; })
 
+
+  
