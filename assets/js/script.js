@@ -8,7 +8,8 @@ var timeLeft = 60; // this will be 60 seconds per question
 var highScores;
 var submission = document.querySelector("#submit");
 var initialsForm = document.querySelector("#initials");
-
+var listHighscore = document.querySelector("#highscores");
+var clearBtn = document.querySelector ("#clear");
 
 var questions = [
   {
