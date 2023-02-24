@@ -8,7 +8,7 @@ var timeLeft = 60; // this will be 60 seconds per question
 var highScores;
 var submission = document.querySelector("#submit");
 var initialsForm = document.querySelector("#initials");
-var listHighscore = document.querySelector("#highscores");
+
 var clearBtn = document.querySelector ("#clear");
 
 var questions = [
@@ -135,10 +135,10 @@ function endGame () {
     var finalScoreEl = document.querySelector("#final-score");
     var initials = initialsForm.value.trim(); // get the user's initials
     var score = timeLeft; // save the time left as the score
-    var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
   
     // add the new score to the high scores array
-    highScores.push({ initials: initials, score: score });
+    highScores.push({initials: initials, score: score });
   
     // sort the high scores array in descending order by score
     highScores.sort(function(a, b) {
