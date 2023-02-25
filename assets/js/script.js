@@ -5,10 +5,9 @@ var questionNo = 0;
 var questionChoices = document.querySelector("#choices");
 var correctAns = document.querySelector("#feedback");
 var timeLeft = 60; // this will be 60 seconds per question
-var highScores;
+var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 var submission = document.querySelector("#submit");
 var initialsForm = document.querySelector("#initials");
-
 var clearBtn = document.querySelector ("#clear");
 
 var questions = [
