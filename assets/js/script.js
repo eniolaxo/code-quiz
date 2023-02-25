@@ -92,12 +92,16 @@ function checkAnswer(event) {
   // Check if the selected answer is correct
   if (selectedAnswer === questions[questionNo].answer) {
     feedbackEl.textContent = "Correct!";
+    var audio = new Audio("assets/sfx/correct.wav");
+    audio.play();
   } else {
     feedbackEl.textContent = "Wrong!"; 
     timeLeft -= 10;
     if (timeLeft < 0){
       timeLeft = 0;
     }
+    var audio = new Audio("assets/sfx/incorrect.wav");
+    audio.play();
   }
 
     // to move on to the next question:
